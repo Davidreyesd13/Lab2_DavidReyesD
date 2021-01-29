@@ -110,17 +110,9 @@ public class restaurante {
         this.especialidad = especialidad;
     }
 
-    public String getEstado() {
-        return Estado;
-    }
-
-    public void setEstado(String Estado) {
-        this.Estado = Estado;
-    }
-
     @Override
     public String toString() {
-        if(!Estado.equals("Remodelación")&&!Estado.equals("Demolicion")){
+        if(!Estado.equals("Remodelación")||!Estado.equals("Demolicion")){
         return "restaurante\n" + "franquisia=" + franquisia + ", name=" + name + ", ubicacion=" + ubicacion + ", empleados=" + empleados + ", parqueo=" + parqueo + ", areaj=" + areaj + ", mesas=" + mesas + ", cajeros=" + cajeros + ", gerente=" + gerente + ", especialidad=" + especialidad + ", Estado=" + Estado ;
         }else{
             return "restaurante\n" + "franquisia=" + franquisia + ", name=" + name + ", ubicacion=" + ubicacion + ", empleados=" + empleados + ", parqueo=" + parqueo + ", areaj=" + areaj + ", mesas=" + "No tiene "+ ", cajeros=" + cajeros + ", gerente=" + "No tiene" + ", especialidad=" + "No tiene" + ", Estado=" + Estado ;
