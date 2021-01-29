@@ -1,12 +1,15 @@
 package lab2_davidreyes;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Lab2_DavidReyes {
 
     static Scanner leer = new Scanner(System.in);
 
     public static void main(String[] args) {
+        ArrayList listaRe =  new ArrayList();
+        ArrayList listapre = new ArrayList (listaRe);
         char resp = 's';
         while (resp == 's' || resp == 'S') {
 
@@ -24,7 +27,20 @@ public class Lab2_DavidReyes {
                         int r1 = leer.nextInt();
                         switch (r1) {
                             case 1:
-
+                                System.out.println("1.Funcional\n2.Remodelacion\n3.Demolicion");
+                                int ep = leer.nextInt();//ep= estado opcion
+                                switch (ep) {
+                                    case 1:
+                                        
+                                        break;
+                                    case 2:
+                                        break;
+                                    case 3:
+                                        break;
+                                    default:
+                                        System.out.println("Opcion invalida");
+                                        break;
+                                }
                                 break;
                             case 2:
                                 
@@ -34,6 +50,9 @@ public class Lab2_DavidReyes {
                                 break;
                             case 4:
                                 
+                                break;
+                            default:
+                                System.out.println("Opcion invalida");
                                 break;
                         }
                         break;
