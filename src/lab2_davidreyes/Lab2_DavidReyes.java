@@ -12,6 +12,7 @@ public class Lab2_DavidReyes {
         ArrayList listapre = new ArrayList();
         ArrayList gerente = new ArrayList();
         char resp = 's';
+        int cont = 0;
         while (resp == 's' || resp == 'S') {
 
             System.out.println("Ingrese el usuario: ");
@@ -74,8 +75,8 @@ public class Lab2_DavidReyes {
                                 String fq = leer.next();
                                 for (Object t : listaRe) {
                                     if (((restaurante) t).franquisia.equals(fq)) {
-                                            System.out.println(listaRe.indexOf(t) + "-" + t + "\n");
-                                        }
+                                        System.out.println(listaRe.indexOf(t) + "-" + t + "\n");
+                                    }
                                 }
                                 break;
                             case 4:
@@ -91,47 +92,103 @@ public class Lab2_DavidReyes {
                         break;
                     case 2:
                         System.out.println("1.Crear\n2.Listar\n3.Modificar\n4.Eliminar");
-                        int oc= leer.nextInt();
+                        int oc = leer.nextInt();
                         switch (oc) {
                             case 1:
                                 System.out.println("Ingrese el nombre de la franquicia");
+                                leer.nextLine();
                                 String franquicia = leer.next();
-                                franquicia=franquicia.toLowerCase();
+                                franquicia = franquicia.toLowerCase();
                                 System.out.println("Nombre del restaurante");
+                                leer.nextLine();
                                 String nr = leer.nextLine();
                                 nr = nr.toLowerCase();
                                 System.out.println("Ingrese la ubicacion");
                                 String ub = leer.nextLine();
                                 ub = ub.toLowerCase();
-                                boolean flag=false,par,jg;
-                                int i=0;
-                                while(flag ==false||i<listaRe.size()){
-                                    if (((restaurante)listaRe.get(i)).ubicacion.equals(ub)) {
-                                        System.out.println("La ubicacion ya esta ocupada");
-                                        System.out.println("Ingrese la nueva ubicacion");
-                                        ub = leer.nextLine();
-                                        flag=true;
-                                    }
-                                    i++;
-                                }
+                                boolean flag = false,
+                                 par,
+                                 jg;
+
                                 System.out.println("Ingrese la cantidad de empleados");
                                 int ne = leer.nextInt();
                                 System.out.println("Tiene parqueo");
                                 String rp = leer.next();
                                 rp = rp.toLowerCase();
                                 if (rp.equals("si")) {
-                                    
+                                    par = true;
+                                } else {
+                                    par = false;
                                 }
-                                
+                                System.out.println("Tiene juegos");
+                                String rjg = leer.next();
+                                rjg = rjg.toLowerCase();
+                                if (rjg.equals("si")) {
+                                    jg = true;
+                                } else {
+                                    jg = false;
+                                }
+                                System.out.println("Ingrese la cantidad de mesas");
+                                int mesas = leer.nextInt();
+                                System.out.println("Ingrese la cantidad de cajeros");
+                                int cajero = leer.nextInt();
+                                System.out.println("Ingrese el nombre del gerente");
+                                leer.nextLine();
+                                String ng = leer.nextLine();
+                                System.out.println("Ingrese la especialidad");
+                                String espc = leer.next();
+                                System.out.println("Ingrese el estado del restaurante");
+                                String estado = leer.next();
+                                listaRe.add(new restaurante(franquicia, nr, ub, ne, par, jg, mesas, cajero, ng, espc, estado));
+                                if (jg == true && par == true) {
+                                    System.out.println("Ingrese la cantidad de carros que puede soportar");
+                                    int cantpar = leer.nextInt();
+                                    if (cantpar > 30) {
+                                        listapre.add(new restaurante(franquicia, nr, ub, ne, par, jg, mesas, cajero, ng, espc, estado));
+                                    }
+                                }
+                                if (cont > 0) {
+                                    int i = 0;
+                                    int tsg = 1;
+                                    while (flag == false || i < listaRe.size()) {
+                                        if (((restaurante) listaRe.get(i)).ubicacion.equals(ub)) {
+                                            System.out.println("La ubicacion ya esta ocupada");
+                                            System.out.println("Ingrese la nueva ubicacion");
+                                            leer.nextLine();
+                                            ub = leer.nextLine();
+                                            flag = true;
+                                        } else if (((restaurante) listaRe.get(i)).gerente.equals(ng)) {
+                                            System.out.println("el gerente que ingreso ya tiene trabajo con otro restaurante solo puede trabajar en 2");
+                                            tsg++;
+                                            if (tsg == 2) {
+                                                gerente.add(new restaurante(ng));
+                                                flag = true;
+                                            } else {
+                                                System.out.println("No puede agregarlo en ese trabajo ya tiene mas de 2");
+                                                System.out.println("Ingrese el nombre del nuevo gerente ");
+                                                ng = leer.next();
+                                            }
+                                        } else if (((restaurante) listaRe.get(i)).especialidad.equals(espc) && ((restaurante) listaRe.get(i)).franquisia.equals(franquicia)) {
+                                            System.out.println("La especializacion ya existe en esta franquicia ponga otra");
+                                            System.out.println("Ingrese la nueva especializacion");
+                                            leer.nextLine();
+                                            espc = leer.nextLine();
+                                            flag = true;
+                                        }
+                                        i++;
+                                    }
+                                }
                                 break;
                             case 2:
-                                
+                                for (Object o : listaRe) {
+                                    System.out.println(listaRe.indexOf(o)+"-"+o+"\n");
+                                }
                                 break;
                             case 3:
                                 break;
                             case 4:
                                 for (Object o : listaRe) {
-                                    System.out.println(listaRe.indexOf(o)+"-"+o+"\n");
+                                    System.out.println(listaRe.indexOf(o) + "-" + o + "\n");
                                 }
                                 System.out.println("Ingrese el numero que desea remover");
                                 int remove = leer.nextInt();

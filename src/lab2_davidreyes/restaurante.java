@@ -16,7 +16,7 @@ public class restaurante {
     public restaurante() {
     }
 
-    public restaurante(String franquisia, String name, String ubicacion, int empleados, boolean parqueo, boolean areaj, int mesas, int cajeros, String gerente, String especialidad, String Estado) {
+    public restaurante(String franquisia, String name, String ubicacion, int empleados, boolean parqueo, boolean areaj,int mesas, int cajeros, String gerente, String especialidad, String Estado) {
         this.franquisia = franquisia;
         this.name = name;
         this.ubicacion = ubicacion;
@@ -29,6 +29,11 @@ public class restaurante {
         this.especialidad = especialidad;
         this.Estado = Estado;
     }
+
+    public restaurante(String gerente) {
+        this.gerente = gerente;
+    }
+    
 
     public String getFranquisia() {
         return franquisia;
@@ -118,5 +123,8 @@ public class restaurante {
             return "restaurante\n" + "franquisia=" + franquisia + ", name=" + name + ", ubicacion=" + ubicacion + ", empleados=" + empleados + ", parqueo=" + parqueo + ", areaj=" + areaj + ", mesas=" + "No tiene "+ ", cajeros=" + cajeros + ", gerente=" + "No tiene" + ", especialidad=" + "No tiene" + ", Estado=" + Estado ;
         }
         }
-    
+    public String toStringG() {
+        
+            return "Nombre del gerente: " + gerente;
+        }
 }
