@@ -70,12 +70,12 @@ public class Lab2_DavidReyes {
                                 }
                                 break;
                             case 3:
+                                System.out.println("Ingrese el nombre de la franquicia");
+                                String fq = leer.next();
                                 for (Object t : listaRe) {
-                                    if (t instanceof restaurante) {
-                                        if (((Object) ((restaurante) t).franquisia) instanceof restaurante) {
+                                    if (((restaurante) t).franquisia.equals(fq)) {
                                             System.out.println(listaRe.indexOf(t) + "-" + t + "\n");
                                         }
-                                    }
                                 }
                                 break;
                             case 4:
@@ -94,9 +94,38 @@ public class Lab2_DavidReyes {
                         int oc= leer.nextInt();
                         switch (oc) {
                             case 1:
+                                System.out.println("Ingrese el nombre de la franquicia");
+                                String franquicia = leer.next();
+                                franquicia=franquicia.toLowerCase();
+                                System.out.println("Nombre del restaurante");
+                                String nr = leer.nextLine();
+                                nr = nr.toLowerCase();
+                                System.out.println("Ingrese la ubicacion");
+                                String ub = leer.nextLine();
+                                ub = ub.toLowerCase();
+                                boolean flag=false,par,jg;
+                                int i=0;
+                                while(flag ==false||i<listaRe.size()){
+                                    if (((restaurante)listaRe.get(i)).ubicacion.equals(ub)) {
+                                        System.out.println("La ubicacion ya esta ocupada");
+                                        System.out.println("Ingrese la nueva ubicacion");
+                                        ub = leer.nextLine();
+                                        flag=true;
+                                    }
+                                    i++;
+                                }
+                                System.out.println("Ingrese la cantidad de empleados");
+                                int ne = leer.nextInt();
+                                System.out.println("Tiene parqueo");
+                                String rp = leer.next();
+                                rp = rp.toLowerCase();
+                                if (rp.equals("si")) {
+                                    
+                                }
                                 
                                 break;
                             case 2:
+                                
                                 break;
                             case 3:
                                 break;
