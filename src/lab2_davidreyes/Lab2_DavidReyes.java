@@ -8,8 +8,9 @@ public class Lab2_DavidReyes {
     static Scanner leer = new Scanner(System.in);
 
     public static void main(String[] args) {
-        ArrayList listaRe =  new ArrayList();
-        ArrayList listapre = new ArrayList (listaRe);
+        ArrayList listaRe = new ArrayList();
+        ArrayList listapre = new ArrayList();
+        ArrayList gerente = new ArrayList();
         char resp = 's';
         while (resp == 's' || resp == 'S') {
 
@@ -31,11 +32,31 @@ public class Lab2_DavidReyes {
                                 int ep = leer.nextInt();//ep= estado opcion
                                 switch (ep) {
                                     case 1:
-                                        
+                                        for (Object t : listaRe) {
+                                            //if (t instanceof restaurante) {
+                                            if (((Object) ((restaurante) t).Estado.equals("funcional")) instanceof restaurante) {
+                                                System.out.println(listaRe.indexOf(t) + "-" + t + "\n");
+                                            }
+                                            //}
+                                        }
                                         break;
                                     case 2:
+                                        for (Object t : listaRe) {
+                                            //if (t instanceof restaurante) {
+                                            if (((Object) ((restaurante) t).Estado.equals("remodelacion")) instanceof restaurante) {
+                                                System.out.println(listaRe.indexOf(t) + "-" + t + "\n");
+                                            }
+                                            //}
+                                        }
                                         break;
                                     case 3:
+                                        for (Object t : listaRe) {
+                                            //if (t instanceof restaurante) {
+                                            if (((Object) ((restaurante) t).Estado.equals("demolicion")) instanceof restaurante) {
+                                                System.out.println(listaRe.indexOf(t) + "-" + t + "\n");
+                                            }
+                                            //}
+                                        }
                                         break;
                                     default:
                                         System.out.println("Opcion invalida");
@@ -43,13 +64,25 @@ public class Lab2_DavidReyes {
                                 }
                                 break;
                             case 2:
-                                
+                                for (Object t : listapre) {
+                                    System.out.println(listapre.indexOf(t) + "-" + t + "\n");
+
+                                }
                                 break;
                             case 3:
-                                
+                                for (Object t : listaRe) {
+                                    if (t instanceof restaurante) {
+                                        if (((Object) ((restaurante) t).franquisia) instanceof restaurante) {
+                                            System.out.println(listaRe.indexOf(t) + "-" + t + "\n");
+                                        }
+                                    }
+                                }
                                 break;
                             case 4:
-                                
+                                for (Object object : gerente) {
+                                    System.out.println(listaRe.indexOf(object) + "-" + object + "\n");
+                                }
+
                                 break;
                             default:
                                 System.out.println("Opcion invalida");
@@ -57,7 +90,28 @@ public class Lab2_DavidReyes {
                         }
                         break;
                     case 2:
-
+                        System.out.println("1.Crear\n2.Listar\n3.Modificar\n4.Eliminar");
+                        int oc= leer.nextInt();
+                        switch (oc) {
+                            case 1:
+                                
+                                break;
+                            case 2:
+                                break;
+                            case 3:
+                                break;
+                            case 4:
+                                for (Object o : listaRe) {
+                                    System.out.println(listaRe.indexOf(o)+"-"+o+"\n");
+                                }
+                                System.out.println("Ingrese el numero que desea remover");
+                                int remove = leer.nextInt();
+                                listaRe.remove(remove);
+                                break;
+                            default:
+                                System.out.println("Opcion no valida");
+                                break;
+                        }
                         break;
                     case 0:
                         System.out.println("Gracias hasta luego ");
@@ -68,7 +122,7 @@ public class Lab2_DavidReyes {
                 }
             }
             System.out.println("Desea continuar S/N");
-            resp= leer.next().charAt(0);
+            resp = leer.next().charAt(0);
         }
     }
 
